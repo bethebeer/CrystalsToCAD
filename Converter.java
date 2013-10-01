@@ -28,6 +28,7 @@ public class untitled{
     
     String filename = null;
     String infilename = null;
+    String atomtype = null;
 
 
 	if(args[0].contains(".mol2")){
@@ -66,10 +67,13 @@ public class untitled{
 		scadfile.println("rCl=1.75;");
 		scadfile.println("rBr=1.85;");
 		scadfile.println("rI=1.98;");
+		scadfile.println("unknownatom=3.00;");
 
 		scadfile.println("");
 		scadfile.println("");
 		scadfile.println("");
+		//MAKE SURE YOU CLOSE THIS UNION LATER, with another bracket!!
+		scadfile.println("union(){");
 
 /*
 ** now i will call the modules that will turn the 
@@ -80,14 +84,24 @@ public class untitled{
 //writing the rest of the file from the 2 dimensional
 //array list, wholemolecule
 		for(int i = 0; i<height; i++){
-			if(get(i,1).substring(0,1)=="H" || get(i,1).substring(0,1)=="C"){
-				scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res"+get(i,1).substring(0,1)+");");
+			if(get(i,1).substring(0,2).equals("Si")||get(i,1).substring(0,2).equals("Br")||get(i,1).substring(0,2).equals("Cl")){
+				scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,2) +", $fn=res);");
 			}
 			else{
-				scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res);");
+				if((get(i,1).substring(0,1).equals("H") || get(i,1).substring(0,1).equals("C")) && !get(i,1).substring(0,2).equals("Cr") && !get(i,1).substring(0,2).equals("Ca") && !get(i,1).substring(0,2).equals("Co") && !get(i,1).substring(0,2).equals("Cu") && !get(i,1).substring(0,2).equals("Cd") && !get(i,1).substring(0,2).equals("Cs") && !get(i,1).substring(0,2).equals("Cm") && !get(i,1).substring(0,2).equals("Cf") && !get(i,1).substring(0,2).equals("Cn")){
+					scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res"+get(i,1).substring(0,1) +");");
+				}
+				else{
+					if(get(i,1).substring(0,1).equals("N") || get(i,1).substring(0,1).equals("O") || get(i,1).substring(0,1).equals("F") || get(i,1).substring(0,1).equals("P") || get(i,1).substring(0,1).equals("S") || get(i,1).substring(0,1).equals("I")){
+						scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res);");
+					}
+					else{
+						scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=unknownatom" +", $fn=res);");
+					}
+				}
 			}
 		}
-
+		scadfile.println("}");
 //****CLOSE IT
 		scadfile.close();
 	}
@@ -176,6 +190,7 @@ public class untitled{
 	}
 }
 	
+
 
 
 
