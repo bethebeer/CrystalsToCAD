@@ -20,6 +20,7 @@ public class untitled{
 
     //2 dimensional array, should store all atoms
 	public static ArrayList<ArrayList<String>> wholemolecule = new ArrayList<ArrayList<String>>();
+	public static boolean xz = true;
 
 
 
@@ -50,24 +51,107 @@ public class untitled{
 		PrintWriter scadfile = new PrintWriter(new File(filename));
 		scadfile.println("SCALE=1;");
 		scadfile.println("resC=30; //resolution of Carbon atoms");
-		scadfile.println("resH=10; //resolution of Hydrogen atoms");
+		scadfile.println("resH=16; //resolution of Hydrogen atoms");
+		scadfile.println("resO=25; //resolution of Oxygen atoms");
 		scadfile.println("res=20; //resolution of all other atoms");
 		scadfile.println("");
 		scadfile.println("");
-		scadfile.println("//  Nonbonded Contact Definition; van der Waals Radii from:");
-		scadfile.println("//  http://isostar.ccdc.cam.ac.uk/help/IsoStar/isostar.3.44.html");
+		scadfile.println("//van der Waals Radii from:");
+		scadfile.println("//2013DaltonTrans Alvarez A Cartography of the vdW Territories");
+		scadfile.println("//http://pubs.rsc.org/en/content/articlehtml/2013/dt/c3dt50599e");
 		scadfile.println("rH=1.20;");
-		scadfile.println("rC=1.70;");
-		scadfile.println("rN=1.55;");
-		scadfile.println("rO=1.52;");
-		scadfile.println("rF=1.47;");
-		scadfile.println("rSi=2.10;");
-		scadfile.println("rP=1.80;");
-		scadfile.println("rS=1.80;");
-		scadfile.println("rCl=1.75;");
-		scadfile.println("rBr=1.85;");
-		scadfile.println("rI=1.98;");
-		scadfile.println("unknownatom=3.00;");
+		scadfile.println("rHe=1.43;");
+		scadfile.println("rLi=2.12;");
+		scadfile.println("rBe=1.98;");
+		scadfile.println("rB=1.91;");
+		scadfile.println("rC=1.77;");
+		scadfile.println("rN=1.66;");
+		scadfile.println("rO=1.50;");
+		scadfile.println("rF=1.46;");
+		scadfile.println("rNe=1.58;");
+		scadfile.println("rNa=2.50;");
+		scadfile.println("rMg=2.51;");
+		scadfile.println("rAl=2.25;");
+		scadfile.println("rSi=2.19;");
+		scadfile.println("rP=1.90;");
+		scadfile.println("rS=1.89;");
+		scadfile.println("rCl=1.82;");
+		scadfile.println("rAr=1.83;");
+		scadfile.println("rK=2.73;");
+		scadfile.println("rCa=2.62;");
+		scadfile.println("rSc=2.58;");
+		scadfile.println("rTi=2.46;");
+		scadfile.println("rV=2.42;");
+		scadfile.println("rCr=2.45;");
+		scadfile.println("rMn=2.45;");
+		scadfile.println("rFe=2.44;");
+		scadfile.println("rCo=2.40;");
+		scadfile.println("rNi=2.40;");
+		scadfile.println("rCu=2.38;");
+		scadfile.println("rZn=2.39;");
+		scadfile.println("rGa=2.32;");
+		scadfile.println("rGe=2.29;");
+		scadfile.println("rAs=1.88;");
+		scadfile.println("rSe=1.82;");
+		scadfile.println("rBr=1.86;");
+		scadfile.println("rKr=2.25;");
+		scadfile.println("rRb=3.21;");
+		scadfile.println("rSr=2.84;");
+		scadfile.println("rY=2.75;");
+		scadfile.println("rZr=2.52;");
+		scadfile.println("rNb=2.56;");
+		scadfile.println("rMo=2.45;");
+		scadfile.println("rTc=2.44;");
+		scadfile.println("rRu=2.46;");
+		scadfile.println("rRh=2.44;");
+		scadfile.println("rPd=2.15;");
+		scadfile.println("rAg=2.53;");
+		scadfile.println("rCd=2.49;");
+		scadfile.println("rIn=2.43;");
+		scadfile.println("rSn=2.42;");
+		scadfile.println("rSb=2.47;");
+		scadfile.println("rTe=1.99;");
+		scadfile.println("rI=2.04;");
+		scadfile.println("rXe=2.06;");
+		scadfile.println("rCs=3.48;");
+		scadfile.println("rBa=3.03;");
+		scadfile.println("rLa=2.98;");
+		scadfile.println("rCe=2.88;");
+		scadfile.println("rPr=2.92;");
+		scadfile.println("rNd=2.95;");
+		scadfile.println("rSm=2.90;");
+		scadfile.println("rEu=2.87;");
+		scadfile.println("rGd=2.83;");
+		scadfile.println("rTb=2.79;");
+		scadfile.println("rDy=2.87;");
+		scadfile.println("rHo=2.81;");
+		scadfile.println("rEr=2.83;");
+		scadfile.println("rTm=2.79;");
+		scadfile.println("rYb=2.80;");
+		scadfile.println("rLu=2.74;");
+		scadfile.println("rHf=2.63;");
+		scadfile.println("rTa=2.53;");
+		scadfile.println("rW=2.57;");
+		scadfile.println("rRe=2.49;");
+		scadfile.println("rOs=2.48;");
+		scadfile.println("rIr=2.41;");
+		scadfile.println("rPt=2.29;");
+		scadfile.println("rAu=2.32;");
+		scadfile.println("rHg=2.45;");
+		scadfile.println("rTl=2.47;");
+		scadfile.println("rPb=2.60;");
+		scadfile.println("rBi=2.54;");
+		scadfile.println("rAc=2.8;");
+		scadfile.println("rTh=2.93;");
+		scadfile.println("rPa=2.88;");
+		scadfile.println("rU=2.71;");
+		scadfile.println("rNp=2.82;");
+		scadfile.println("rPu=2.81;");
+		scadfile.println("rAm=2.83;");
+		scadfile.println("rCm=3.05;");
+		scadfile.println("rBk=3.4;");
+		scadfile.println("rCf=3.05;");
+		scadfile.println("rEs=2.7;");
 
 		scadfile.println("");
 		scadfile.println("");
@@ -84,21 +168,17 @@ public class untitled{
 //writing the rest of the file from the 2 dimensional
 //array list, wholemolecule
 		for(int i = 0; i<height; i++){
-			if(get(i,1).substring(0,2).equals("Si")||get(i,1).substring(0,2).equals("Br")||get(i,1).substring(0,2).equals("Cl")){
-				scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,2) +", $fn=res);");
-			}
-			else{
-				if((get(i,1).substring(0,1).equals("H") || get(i,1).substring(0,1).equals("C")) && !get(i,1).substring(0,2).equals("Cr") && !get(i,1).substring(0,2).equals("Ca") && !get(i,1).substring(0,2).equals("Co") && !get(i,1).substring(0,2).equals("Cu") && !get(i,1).substring(0,2).equals("Cd") && !get(i,1).substring(0,2).equals("Cs") && !get(i,1).substring(0,2).equals("Cm") && !get(i,1).substring(0,2).equals("Cf") && !get(i,1).substring(0,2).equals("Cn")){
+			if(oneletterelement(get(i,5))){
+				if(get(i,1).substring(0,1).equals("H") || get(i,1).substring(0,1).equals("C") || get(i,1).substring(0,1).equals("O")){
 					scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res"+get(i,1).substring(0,1) +");");
 				}
 				else{
-					if(get(i,1).substring(0,1).equals("N") || get(i,1).substring(0,1).equals("O") || get(i,1).substring(0,1).equals("F") || get(i,1).substring(0,1).equals("P") || get(i,1).substring(0,1).equals("S") || get(i,1).substring(0,1).equals("I")){
-						scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res);");
-					}
-					else{
-						scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=unknownatom" +", $fn=res);");
-					}
+					scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,1) +", $fn=res);");	
 				}
+			}
+			else{
+				
+				scadfile.println("translate(["+get(i,2)+","+get(i,3)+","+get(i,4)+"])sphere(r=r"+get(i,1).substring(0,2) +", $fn=res);");
 			}
 		}
 		scadfile.println("}");
@@ -188,6 +268,22 @@ public class untitled{
 	public static int getNumRows(){
 		return wholemolecule.size();
 	}
+
+	public static boolean oneletterelement(String elementnum){
+		if(elementnum.length()<2){
+			xz=true;
+		}
+		if(elementnum.length()==2 && elementnum.matches(".*\\d.*")!=true){
+			xz=false;
+		}
+		if(elementnum.length()>1 && elementnum.contains(".") && elementnum.indexOf(".")!=1 ){
+			xz=true;
+		}
+
+		return xz;
+		
+	}
+
 }
 	
 
