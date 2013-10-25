@@ -11,7 +11,7 @@ import java.util.*;
  */
 
 
-public class untitled{
+public class Converter{
 
     /**
      * @param args
