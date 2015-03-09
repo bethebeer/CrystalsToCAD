@@ -1,6 +1,8 @@
 CrystalsToCAD
 =============
 
+Deprecated in favor of https://github.com/albinoBandicoot/CrystalsToCad
+
 .mol2 to .scad converter
 
 I have made a simple script to convert a .mol2 file into an editable .scad file. It is all run through the command line.  You will need Openscad in order to edit the .scad file(http://www.openscad.org/).
